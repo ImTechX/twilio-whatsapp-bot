@@ -190,7 +190,7 @@ app.all("/webhook2", async (req, res) => {
         "   Oficina principal, planta baja\n" +
         "   Lunes a viernes — 08:00 a 17:00\n\n" +
         "📧 *Correo institucional:*\n" +
-        "   sistemas@umg.edu.gt\n\n" +
+        "   proyecto.biometria.2026@gmail.com\n\n" +
         "━━━━━━━━━━━━━━━━━━━━━━\n" +
         "Escribe *menu* para volver";
     }
