@@ -19,7 +19,7 @@ async function obtenerUsuarioPorTelefono(numero) {
   const { data, error } = await supabase
     .schema("silver")
     .from("persons")
-    ..select("phone, pdf_url, first_name")
+    .select("phone, pdf_url, first_name")
     .eq("phone", tel)
     .maybeSingle();
   if (error) {
