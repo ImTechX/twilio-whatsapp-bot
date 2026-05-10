@@ -19,7 +19,7 @@ async function obtenerUsuarioPorTelefono(numero) {
   const { data, error } = await supabase
     .schema("silver")
     .from("persons")
-    .select("phone, pdf_url, first_name, last_name, carnet_id, carrera, seccion")
+    ..select("phone, pdf_url, first_name")
     .eq("phone", tel)
     .maybeSingle();
   if (error) {
@@ -118,11 +118,8 @@ app.all("/webhook2", async (req, res) => {
         body =
           "👤 *Tu información registrada*\n" +
           "━━━━━━━━━━━━━━━━━━━━━━\n\n" +
-          `📛 Nombre: *${usuario.first_name} ${usuario.last_name || ""}*\n` +
+          `📛 Nombre: *${usuario.first_name}*\n` +
           `📱 Teléfono: ${usuario.phone}\n` +
-          (usuario.carnet_id ? `🪪 No. Carnet: *${usuario.carnet_id}*\n` : "") +
-          (usuario.carrera   ? `📚 Carrera: ${usuario.carrera}\n`         : "") +
-          (usuario.seccion   ? `🏫 Sección: ${usuario.seccion}\n`         : "") +
           "\n━━━━━━━━━━━━━━━━━━━━━━\n" +
           "Escribe *menu* para volver";
       }
